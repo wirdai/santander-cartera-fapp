@@ -6,7 +6,7 @@ const {
   insertRecordsIntoClickhouse,
 } = require("../utils/clickhouse");
 
-const VALUES = ["id_cargo", "descripcion_cargo", "cartera", "cartera_original"];
+const VALUES = ["id_cargo", "descripcion_cargo", "cartera", "cartera_original", "codsuc_comercial"];
 
 const handleRequest = async (request, _context) => {
   console.info("Starting process request");
@@ -20,7 +20,7 @@ const handleRequest = async (request, _context) => {
   }
   console.info("Got rows from CSV");
   // Parse rows and create a record by email
-  // email: { user_id, email, id_cargo, cartera, cartera_original }
+  // email: { user_id, email, id_cargo, cartera, cartera_original, codsuc_comercial }
   // user_id will bet get from Clickhouse in the next step
   const recordByEmail = {};
   for (const row of rows) {
